@@ -63,7 +63,7 @@ class PhotoStorage:
 
 
 ROOT_DIRECTORY = Path(__file__).parent.parent
-TOKEN = "1885150985:AAEONnV-xJjIvBGxMR5n827HluF3RtzIqAw"
+TOKEN = input('\n\n TOKEN BOTA:  ')
 
 photo_storage = PhotoStorage("_images")
 
