@@ -30,7 +30,6 @@ try:
     con.commit()
     print('\n\n\n\n     Создание БД')
 except:
-    print('\n\n     Старт Бота')
     pass
 tt = datetime.now()
 
@@ -63,7 +62,14 @@ class PhotoStorage:
 
 
 ROOT_DIRECTORY = Path(__file__).parent.parent
-TOKEN = input('\n\n TOKEN BOTA:  ')
+try:
+    TOKEN = open('sys', 'r').read()
+    pass
+except:
+    print('\n   Это первый запуск Бота Установите Токен \n\n ')
+    newe = open('sys', 'w').write(input('Token Bota:   '))
+    TOKEN = open('sys', 'r').read()
+    pass
 
 photo_storage = PhotoStorage("_images")
 
@@ -184,5 +190,4 @@ def setup(dp: Dispatcher):
         content_types=ContentTypes.DOCUMENT,
     )
 if __name__ == "__main__":
-    # Start long-polling mode
     executor.start_polling(dp)
